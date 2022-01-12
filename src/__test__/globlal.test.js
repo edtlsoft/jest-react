@@ -50,10 +50,10 @@ test('Testing async/await', async() => {
 })
 
 
-afterEach(() => console.log('After each test'))
+// afterEach(() => console.log('After each test'))
 
-afterAll(() => console.log('After all tests'))
+// afterAll(() => console.log('After all tests'))
 
-beforeEach(() => console.log('Before each test'))
+// beforeEach(() => console.log('Before each test'))
 
-beforeAll(() => console.log('Before all tests'))
+// beforeAll(() => console.log('Before all tests'))
