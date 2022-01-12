@@ -1,25 +1,17 @@
-const cities = [
-    'Cucuta',
-    'Bogota',
-    'Medellin',
-    'Cali',
-    'Barranquilla',
-    'Pasto',
-];
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import App from './routes/App';
+import reducer from './reducers';
 
-const randomString = () => {
-    const numRandom = Math.floor(Math.random() * cities.length);
-    return cities[numRandom];
-}
+import initialState from './initialState';
 
-const reverseStringTwo = str => {
-    return new Promise((resolve, reject) => {
-        if (!str) {
-            reject('The var str is required')
-        }
+const store = createStore(reducer, initialState);
 
-        resolve(str.split('').reverse().join(''))
-    })
-}
-
-module.exports = randomString;
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('app'),
+);
