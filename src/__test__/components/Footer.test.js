@@ -1,6 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { create } from 'react-test-renderer';
 import Footer from '../../components/Footer';
+import { expect } from '@jest/globals';
 
 describe('<Footer />', () => {
   const footer = mount(<Footer />);
@@ -11,5 +13,12 @@ describe('<Footer />', () => {
 
   test('should be render the title', () => {
     expect(footer.find('.Footer-title').text()).toEqual('Platzi Store');
+  });
+});
+
+describe('Footer snapshot', () => {
+  test('Validate UI', () => {
+    const footer = create(<Footer />);
+    expect(footer.toJSON()).toMatchSnapshot();
   });
 });
