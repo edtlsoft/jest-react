@@ -27,3 +27,33 @@ test('Testing a callback', () => {
         expect(str).toBe('olleH')
     });
 })
+
+
+const reverseStringTwo = str => {
+    return new Promise((resolve, reject) => {
+        if (!str) {
+            reject('The var str is required')
+        }
+
+        resolve(str.split('').reverse().join(''))
+    })
+}
+
+test('Testing a promise', () => {
+    return reverseStringTwo('Hello')
+            .then(str => expect(str).toBe('olleH'));
+})
+
+test('Testing async/await', async() => {
+    const reverseStr = await reverseStringTwo('Hello');
+    expect(reverseStr).toBe('olleH');
+})
+
+
+afterEach(() => console.log('After each test'))
+
+afterAll(() => console.log('After all tests'))
+
+beforeEach(() => console.log('Before each test'))
+
+beforeAll(() => console.log('Before all tests'))
