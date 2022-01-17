@@ -12,7 +12,7 @@ describe('<Footer />', () => {
   });
 
   test('should be render the title', () => {
-    expect(footer.find('.Footer-title').text()).toEqual('Platzi Store Error');
+    expect(footer.find('.Footer-title').text()).toEqual('Platzi Store');
   });
 });
 
